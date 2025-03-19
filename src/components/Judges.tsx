@@ -81,7 +81,7 @@ const Judges = () => {
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {judges.map((judge, index) => (
             <div 
               key={judge.name} 
@@ -91,14 +91,14 @@ const Judges = () => {
             >
               <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600 to-violet-600 rounded-xl blur opacity-30 group-hover:opacity-70 transition-opacity"></div>
               <div className="relative glass rounded-xl overflow-hidden transition-transform duration-300 group-hover:translate-y-[-5px]">
-                <div className="aspect-square relative overflow-hidden">
+                <div className="aspect-square relative overflow-hidden max-w-[180px] mx-auto">
                   <img 
                     src={judge.image} 
                     alt={judge.name} 
                     className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-110"
                     loading="lazy"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-center p-6">
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-center p-4">
                     <a 
                       href={judge.twitter} 
                       target="_blank" 
@@ -106,7 +106,7 @@ const Judges = () => {
                       className="text-white hover:text-blue-400 transition-colors"
                       aria-label={`${judge.name}'s Twitter`}
                     >
-                      <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.45-6.231Zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77Z" />
                       </svg>
                     </a>
