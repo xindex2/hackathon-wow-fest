@@ -1,10 +1,10 @@
 
 import React, { useEffect, useRef } from 'react';
-import { Linkedin, Twitter, Globe } from 'lucide-react';
+import { Award, Star, UserPlus } from 'lucide-react';
 
 const Judges = () => {
   const sectionRef = useRef<HTMLElement>(null);
-
+  
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -27,101 +27,100 @@ const Judges = () => {
 
   const judges = [
     {
-      name: "Sara Normous",
-      title: "Startup Advisor & Investor",
-      image: "https://pbs.twimg.com/profile_images/1880702021122342912/fe9TlQqJ_400x400.jpg",
-      twitter: "saranormous",
-      bio: "Entrepreneur and tech investor with a passion for early-stage startups and innovative tech solutions."
-    },
-    {
       name: "Theo",
-      title: "Founder, t3.gg",
+      title: "Creator of t3.gg",
       image: "https://pbs.twimg.com/profile_images/1799982162831396865/Fnol01I1_400x400.jpg",
-      twitter: "theo",
-      bio: "Creator of t3.gg, educator, and developer advocate focusing on modern web development technologies."
+      twitter: "https://twitter.com/theo",
     },
     {
       name: "Evan You",
       title: "Creator of Vue.js",
       image: "https://pbs.twimg.com/profile_images/1856284397072478208/hSEXLkPN_400x400.jpg",
-      twitter: "youyuxi",
-      bio: "Creator of Vue.js, JavaScript framework developer, and open source advocate with a focus on developer experience."
+      twitter: "https://twitter.com/youyuxi",
     },
     {
       name: "KP",
-      title: "Tech Entrepreneur",
+      title: "Product Designer",
       image: "https://pbs.twimg.com/profile_images/1288449070344937473/fKlvccnM_400x400.jpg",
-      twitter: "thisiskp_",
-      bio: "Serial entrepreneur and tech strategist with expertise in scaling products and building developer-focused communities."
-    }
+      twitter: "https://twitter.com/thisiskp_",
+    },
+    {
+      name: "Sara Soueidan",
+      title: "Web Developer & Accessibility Expert",
+      image: "https://avatars.githubusercontent.com/u/3712343?v=4",
+      twitter: "https://twitter.com/saranormous",
+    },
   ];
 
   return (
-    <section id="judges" className="py-24 relative overflow-hidden">
+    <section id="judges" ref={sectionRef} className="py-24 relative overflow-hidden bg-gradient-to-b from-background to-background/80">
       <div className="absolute inset-0 bg-grid-pattern bg-[length:20px_20px] opacity-5"></div>
       
       <div className="container mx-auto px-4">
         <div className="text-center max-w-3xl mx-auto mb-16">
+          <div className="flex justify-center mb-6">
+            <div className="relative">
+              <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-violet-600 rounded-full blur opacity-50"></div>
+              <div className="relative bg-background rounded-full p-3 flex items-center justify-center">
+                <img 
+                  src="https://pbs.twimg.com/profile_images/1880702021122342912/fe9TlQqJ_400x400.jpg" 
+                  alt="Blot" 
+                  className="h-8 w-8 rounded-full"
+                />
+              </div>
+            </div>
+          </div>
           <h2 className="text-sm uppercase tracking-wider text-blue-500 font-semibold mb-3" data-animate="fade-up" data-index="0">
-            Expert Evaluation
+            Industry Leaders
           </h2>
           <h3 className="text-4xl md:text-5xl font-bold mb-6" data-animate="fade-up" data-index="1">
-            Meet Our Judges
+            World-Class Judges
           </h3>
           <p className="text-lg text-white/70" data-animate="fade-up" data-index="2">
-            Industry leaders and tech innovators who will evaluate submissions and select winners
+            Meet our panel of distinguished judges who will be evaluating submissions
           </p>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {judges.map((judge, index) => (
-            <div
-              key={judge.name}
+            <div 
+              key={judge.name} 
               className="relative group"
-              data-animate="fade-up"
+              data-animate="fade-up" 
               data-index={index + 3}
             >
-              <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500 to-violet-600 rounded-xl blur opacity-20 group-hover:opacity-50 transition-opacity"></div>
-              <div className="relative glass rounded-xl h-full overflow-hidden transition-all duration-300 group-hover:bg-white/10">
-                <div className="p-6 flex flex-col h-full">
-                  <div className="relative w-24 h-24 mb-4 mx-auto rounded-full overflow-hidden border-2 border-white/10 group-hover:border-white/30 transition-all">
-                    <img 
-                      src={judge.image} 
-                      alt={judge.name} 
-                      className="w-full h-full object-cover"
-                      loading="lazy"
-                    />
-                  </div>
-                  
-                  <h4 className="text-xl font-semibold text-center">{judge.name}</h4>
-                  <p className="text-white/70 text-center text-sm mb-4">{judge.title}</p>
-                  
-                  <p className="text-white/70 text-sm mb-6">{judge.bio}</p>
-                  
-                  <div className="mt-auto flex justify-center gap-3">
-                    <a
-                      href={`https://twitter.com/${judge.twitter}`}
-                      target="_blank"
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600 to-violet-600 rounded-xl blur opacity-30 group-hover:opacity-70 transition-opacity"></div>
+              <div className="relative glass rounded-xl overflow-hidden transition-transform duration-300 group-hover:translate-y-[-5px]">
+                <div className="aspect-square relative overflow-hidden">
+                  <img 
+                    src={judge.image} 
+                    alt={judge.name} 
+                    className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-110"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-center p-6">
+                    <a 
+                      href={judge.twitter} 
+                      target="_blank" 
                       rel="noreferrer"
-                      className="p-2 rounded-full bg-white/5 hover:bg-white/10 transition-colors"
+                      className="text-white hover:text-blue-400 transition-colors"
                       aria-label={`${judge.name}'s Twitter`}
                     >
-                      <Twitter className="h-4 w-4" />
+                      <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.45-6.231Zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77Z" />
+                      </svg>
                     </a>
-                    <a
-                      href="#"
-                      className="p-2 rounded-full bg-white/5 hover:bg-white/10 transition-colors"
-                      aria-label={`${judge.name}'s LinkedIn`}
-                    >
-                      <Linkedin className="h-4 w-4" />
-                    </a>
-                    <a
-                      href="#"
-                      className="p-2 rounded-full bg-white/5 hover:bg-white/10 transition-colors"
-                      aria-label={`${judge.name}'s Website`}
-                    >
-                      <Globe className="h-4 w-4" />
-                    </a>
+                  </div>
+                </div>
+                <div className="p-6">
+                  <h4 className="text-xl font-semibold mb-1">{judge.name}</h4>
+                  <p className="text-white/60 mb-4">{judge.title}</p>
+                  <div className="flex items-center text-yellow-500">
+                    <Star className="h-4 w-4 fill-current" />
+                    <Star className="h-4 w-4 fill-current" />
+                    <Star className="h-4 w-4 fill-current" />
+                    <Star className="h-4 w-4 fill-current" />
+                    <Star className="h-4 w-4 fill-current" />
                   </div>
                 </div>
               </div>
@@ -130,9 +129,18 @@ const Judges = () => {
         </div>
         
         <div className="mt-16 text-center" data-animate="fade-up" data-index="7">
-          <div className="inline-flex items-center gap-3 bg-white/5 border border-white/10 rounded-full px-6 py-3">
-            <span className="text-white/70 text-sm">More judges to be announced</span>
-            <span className="h-2 w-2 bg-blue-500 rounded-full animate-pulse"></span>
+          <div className="max-w-xl mx-auto">
+            <h4 className="text-2xl font-bold mb-4">Want to be a Judge?</h4>
+            <p className="text-white/70 mb-6">
+              We're looking for industry leaders to join our panel of judges. Help us discover the next generation of tech innovators.
+            </p>
+            <a 
+              href="mailto:judges@hackathon.dev" 
+              className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-500 hover:to-blue-500 text-white px-6 py-3 rounded-md text-lg font-medium transition-all"
+            >
+              <UserPlus className="h-5 w-5" />
+              <span>Apply to be a Judge</span>
+            </a>
           </div>
         </div>
       </div>

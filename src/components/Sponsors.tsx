@@ -1,5 +1,6 @@
 
 import React, { useEffect, useRef } from 'react';
+import { HeartHandshake } from 'lucide-react';
 
 const Sponsors = () => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -62,7 +63,19 @@ const Sponsors = () => {
       <div className="absolute inset-0 bg-grid-pattern bg-[length:20px_20px] opacity-5"></div>
       
       <div className="container mx-auto px-4">
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-6">
+          <div className="flex justify-center mb-6">
+            <div className="relative">
+              <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-violet-600 rounded-full blur opacity-50"></div>
+              <div className="relative bg-background rounded-full p-3 flex items-center justify-center">
+                <img 
+                  src="https://pbs.twimg.com/profile_images/1880702021122342912/fe9TlQqJ_400x400.jpg" 
+                  alt="Blot" 
+                  className="h-8 w-8 rounded-full"
+                />
+              </div>
+            </div>
+          </div>
           <h2 className="text-sm uppercase tracking-wider text-blue-500 font-semibold mb-3" data-animate="fade-up" data-index="0">
             Backed by the Best
           </h2>
@@ -127,19 +140,19 @@ const Sponsors = () => {
         </div>
         
         <div className="mt-20 text-center max-w-xl mx-auto" data-animate="fade-up" data-index="5">
-          <h4 className="text-2xl font-bold mb-4">Become a Sponsor</h4>
+          <h4 className="text-2xl font-bold mb-4">Want to Sponsor?</h4>
           <p className="text-white/70 mb-6">
             Join leading tech companies in supporting the world's largest hackathon and gain visibility with thousands of developers.
           </p>
-          <a
-            href="mailto:sponsors@hackathon.dev"
-            className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-violet-600 hover:from-blue-500 hover:to-violet-500 rounded-md px-6 py-3 text-lg font-medium transition-all"
-          >
-            <span>Contact Us</span>
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-            </svg>
-          </a>
+          <div className="flex flex-col sm:flex-row justify-center gap-4">
+            <a
+              href="mailto:sponsors@hackathon.dev"
+              className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-violet-600 hover:from-blue-500 hover:to-violet-500 rounded-md px-6 py-3 text-lg font-medium transition-all"
+            >
+              <HeartHandshake className="h-5 w-5" />
+              <span>Become a Sponsor</span>
+            </a>
+          </div>
         </div>
       </div>
     </section>

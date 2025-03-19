@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
-import { Zap, Menu, X } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -38,7 +38,11 @@ const Header = () => {
           className="flex items-center gap-2 group transition-all"
           aria-label="Hackathon.dev"
         >
-          <Zap className="h-6 w-6 text-blue-500 group-hover:text-blue-400 transition-colors" />
+          <img 
+            src="https://pbs.twimg.com/profile_images/1880702021122342912/fe9TlQqJ_400x400.jpg" 
+            alt="Blot" 
+            className="h-6 w-6 rounded-full"
+          />
           <span className="text-xl font-semibold tracking-tight">
             hackathon.dev
           </span>

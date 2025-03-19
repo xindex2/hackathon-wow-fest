@@ -1,6 +1,6 @@
 
 import React, { useEffect, useRef } from 'react';
-import { Zap } from 'lucide-react';
+import { Zap, Trophy } from 'lucide-react';
 
 interface Particle {
   x: number;
@@ -116,7 +116,11 @@ const Hero = () => {
           <div className="relative">
             <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-violet-600 rounded-full blur opacity-70 animate-pulse-slow"></div>
             <div className="relative bg-background rounded-full p-3 flex items-center justify-center">
-              <Zap className="h-10 w-10 text-blue-500" />
+              <img 
+                src="https://pbs.twimg.com/profile_images/1880702021122342912/fe9TlQqJ_400x400.jpg" 
+                alt="Blot" 
+                className="h-10 w-10 rounded-full"
+              />
             </div>
           </div>
         </div>
@@ -126,8 +130,17 @@ const Hero = () => {
           <span className="text-gradient bg-gradient-to-r from-blue-500 to-violet-500">Hackathon</span>
         </h1>
         
+        <div className="mt-8 bg-gradient-to-r from-blue-900/30 to-violet-900/30 p-6 rounded-2xl border border-blue-500/20 animate-pulse-slow">
+          <div className="text-3xl md:text-5xl font-bold text-white flex items-center justify-center gap-3">
+            <Trophy className="h-8 w-8 md:h-10 md:w-10 text-yellow-500" />
+            <span className="text-gradient bg-gradient-to-r from-yellow-400 to-amber-500">$1,000,000+</span>
+            <Trophy className="h-8 w-8 md:h-10 md:w-10 text-yellow-500" />
+          </div>
+          <p className="text-yellow-100/80 mt-2">in total prizes</p>
+        </div>
+        
         <p className="mt-6 text-xl md:text-2xl text-white/70 max-w-2xl mx-auto animate-slide-up">
-          $1M+ in prizes, world-class judges, and a virtual experience like no other
+          World-class judges, and a virtual experience like no other
         </p>
         
         <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 animate-slide-up">

@@ -1,6 +1,6 @@
 
 import React, { useEffect, useRef } from 'react';
-import { Trophy, Award, Gift } from 'lucide-react';
+import { Trophy, Award, Gift, DollarSign } from 'lucide-react';
 
 const Prizes = () => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -54,13 +54,36 @@ const Prizes = () => {
       <div className="absolute inset-0 bg-grid-pattern bg-[length:20px_20px] opacity-5"></div>
       
       <div className="container mx-auto px-4">
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-10">
+          <div className="flex justify-center mb-6">
+            <div className="relative">
+              <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-violet-600 rounded-full blur opacity-50"></div>
+              <div className="relative bg-background rounded-full p-3 flex items-center justify-center">
+                <img 
+                  src="https://pbs.twimg.com/profile_images/1880702021122342912/fe9TlQqJ_400x400.jpg" 
+                  alt="Blot" 
+                  className="h-8 w-8 rounded-full"
+                />
+              </div>
+            </div>
+          </div>
           <h2 className="text-sm uppercase tracking-wider text-blue-500 font-semibold mb-3" data-animate="fade-up" data-index="0">
             Unprecedented Rewards
           </h2>
           <h3 className="text-4xl md:text-5xl font-bold mb-6" data-animate="fade-up" data-index="1">
-            $1M+ Prize Pool
+            <span className="relative">
+              <span className="absolute -top-6 -right-6 bg-gradient-to-br from-yellow-400 to-amber-600 text-white text-xs rounded-full px-2 py-1 rotate-12 animate-pulse">
+                BIGGEST EVER
+              </span>
+              <span className="text-gradient bg-gradient-to-r from-yellow-400 to-amber-500">$1,000,000+</span> 
+              <span> Prize Pool</span>
+            </span>
           </h3>
+          <div className="flex items-center justify-center gap-2 mb-6" data-animate="fade-up" data-index="2">
+            <DollarSign className="h-6 w-6 text-yellow-500" />
+            <span className="text-lg text-yellow-100">One Million Dollars in Prizes</span>
+            <DollarSign className="h-6 w-6 text-yellow-500" />
+          </div>
           <p className="text-lg text-white/70" data-animate="fade-up" data-index="2">
             We've secured the largest prize pool in hackathon history, distributed across multiple categories and special awards.
           </p>
