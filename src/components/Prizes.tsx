@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef } from 'react';
 import { Trophy, Award, Gift, DollarSign, Calendar, Info, ChevronRight } from 'lucide-react';
 import {
@@ -73,13 +72,13 @@ const Prizes = () => {
   ];
   
   const timelineEvents = [
-    { date: 'August 15, 2023', title: 'Registration Opens', description: 'Sign up early to secure your spot in the world\'s largest hackathon.' },
-    { date: 'September 30, 2023', title: 'Registration Closes', description: 'Last day to register for the event. Don\'t miss your chance!' },
-    { date: 'October 1, 2023', title: 'Kickoff & Opening Ceremony', description: 'Join us for the virtual opening ceremony with special guests and announcements.' },
-    { date: 'October 1-8, 2023', title: 'Hackathon Week', description: 'Seven days of intensive hacking, workshops, and mentor sessions.' },
-    { date: 'October 8, 2023', title: 'Submissions Due', description: 'All projects must be submitted by 11:59 PM UTC.' },
-    { date: 'October 10-15, 2023', title: 'Judging Period', description: 'Our panel of judges will review all submitted projects.' },
-    { date: 'October 20, 2023', title: 'Winners Announcement', description: 'Join the live ceremony to find out who won the $1,000,000+ in prizes!' },
+    { date: 'March 19, 2025', title: 'Registration Opens', description: 'Sign up early to secure your spot in the world\'s largest hackathon.' },
+    { date: 'April 30, 2025', title: 'Registration Closes', description: 'Last day to register for the event. Don\'t miss your chance!' },
+    { date: 'May 1, 2025', title: 'Kickoff & Opening Ceremony', description: 'Join us for the virtual opening ceremony with special guests and announcements.' },
+    { date: 'May 1-8, 2025', title: 'Hackathon Week', description: 'Seven days of intensive hacking, workshops, and mentor sessions.' },
+    { date: 'May 8, 2025', title: 'Submissions Due', description: 'All projects must be submitted by 11:59 PM UTC.' },
+    { date: 'May 10-15, 2025', title: 'Judging Period', description: 'Our panel of judges will review all submitted projects.' },
+    { date: 'May 20, 2025', title: 'Winners Announcement', description: 'Join the live ceremony to find out who won the $1,000,000+ in prizes!' },
   ];
   
   const faqs = [

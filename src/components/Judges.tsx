@@ -47,7 +47,7 @@ const Judges = () => {
     {
       name: "Sara Soueidan",
       title: "Web Developer & Accessibility Expert",
-      image: "https://avatars.githubusercontent.com/u/3712343?v=4",
+      image: "https://pbs.twimg.com/profile_images/1689443134919327744/geqEJeF8_400x400.jpg",
       twitter: "https://twitter.com/saranormous",
     },
   ];
