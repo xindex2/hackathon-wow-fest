@@ -112,15 +112,15 @@ const Judges = () => {
                     </a>
                   </div>
                 </div>
-                <div className="p-6">
-                  <h4 className="text-xl font-semibold mb-1">{judge.name}</h4>
-                  <p className="text-white/60 mb-4">{judge.title}</p>
+                <div className="p-4">
+                  <h4 className="text-lg font-semibold mb-1">{judge.name}</h4>
+                  <p className="text-white/60 mb-3 text-sm">{judge.title}</p>
                   <div className="flex items-center text-yellow-500">
-                    <Star className="h-4 w-4 fill-current" />
-                    <Star className="h-4 w-4 fill-current" />
-                    <Star className="h-4 w-4 fill-current" />
-                    <Star className="h-4 w-4 fill-current" />
-                    <Star className="h-4 w-4 fill-current" />
+                    <Star className="h-3 w-3 fill-current" />
+                    <Star className="h-3 w-3 fill-current" />
+                    <Star className="h-3 w-3 fill-current" />
+                    <Star className="h-3 w-3 fill-current" />
+                    <Star className="h-3 w-3 fill-current" />
                   </div>
                 </div>
               </div>
