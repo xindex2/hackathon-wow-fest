@@ -91,7 +91,7 @@ const Judges = () => {
             >
               <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600 to-violet-600 rounded-xl blur opacity-30 group-hover:opacity-70 transition-opacity"></div>
               <div className="relative glass rounded-xl overflow-hidden transition-transform duration-300 group-hover:translate-y-[-5px]">
-                <div className="aspect-square relative overflow-hidden max-w-[180px] mx-auto">
+                <div className="aspect-square relative overflow-hidden max-w-[180px] mx-auto rounded-full m-4 border-2 border-white/10 shadow-lg">
                   <img 
                     src={judge.image} 
                     alt={judge.name} 
