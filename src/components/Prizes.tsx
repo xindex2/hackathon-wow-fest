@@ -1,5 +1,6 @@
+
 import React, { useEffect, useRef } from 'react';
-import { Trophy, Award, Gift, DollarSign, Calendar, Info, ChevronRight } from 'lucide-react';
+import { Trophy, Award, Gift, DollarSign, Calendar, Info, ChevronRight, Users, Heart } from 'lucide-react';
 import {
   Accordion,
   AccordionContent,
@@ -8,6 +9,7 @@ import {
 } from "@/components/ui/accordion";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Separator } from "@/components/ui/separator";
+import { Badge } from "@/components/ui/badge";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 
 const Prizes = () => {
@@ -69,6 +71,18 @@ const Prizes = () => {
         { place: 'Community Choice', amount: '$50,000' }
       ]
     },
+    {
+      icon: <Users className="h-8 w-8 text-purple-400" />,
+      title: 'Community Prize',
+      amount: '$100,000',
+      description: 'Voted by the community for the most impactful and beloved project.',
+      color: 'from-purple-600 to-violet-400',
+      breakdown: [
+        { place: 'Community Favorite', amount: '$50,000' },
+        { place: 'Most Innovative by Vote', amount: '$30,000' },
+        { place: 'Best Social Impact', amount: '$20,000' }
+      ]
+    },
   ];
   
   const timelineEvents = [
@@ -108,6 +122,8 @@ const Prizes = () => {
     },
   ];
 
+  const totalPrizePool = "$1,100,000";
+
   return (
     <section id="prizes" ref={sectionRef} className="py-24 relative overflow-hidden">
       <div className="absolute inset-0 bg-grid-pattern bg-[length:20px_20px] opacity-5"></div>
@@ -129,26 +145,44 @@ const Prizes = () => {
           <h2 className="text-sm uppercase tracking-wider text-blue-500 font-semibold mb-3" data-animate="fade-up" data-index="0">
             Unprecedented Rewards
           </h2>
-          <h3 className="text-4xl md:text-5xl font-bold mb-6" data-animate="fade-up" data-index="1">
+          <h3 className="text-4xl md:text-6xl font-bold mb-6" data-animate="fade-up" data-index="1">
             <span className="relative">
               <span className="absolute -top-6 -right-6 bg-gradient-to-br from-yellow-400 to-amber-600 text-white text-xs rounded-full px-2 py-1 rotate-12 animate-pulse">
                 BIGGEST EVER
               </span>
-              <span className="text-gradient bg-gradient-to-r from-yellow-400 to-amber-500">$1,000,000+</span> 
+              <span className="text-gradient bg-gradient-to-r from-yellow-400 to-amber-500">{totalPrizePool}</span> 
               <span> Prize Pool</span>
             </span>
           </h3>
           <div className="flex items-center justify-center gap-2 mb-6" data-animate="fade-up" data-index="2">
             <DollarSign className="h-6 w-6 text-yellow-500" />
-            <span className="text-lg text-yellow-100">One Million Dollars in Prizes</span>
+            <span className="text-lg text-yellow-100">
+              <span className="font-bold text-white">One Million One Hundred Thousand Dollars</span> in Prizes
+            </span>
             <DollarSign className="h-6 w-6 text-yellow-500" />
           </div>
           <p className="text-lg text-white/70" data-animate="fade-up" data-index="2">
             We've secured the largest prize pool in hackathon history, distributed across multiple categories and special awards.
           </p>
+          
+          {/* Prize counter summary */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8 mb-12">
+            {prizes.map((prize, index) => (
+              <div key={index} className="glass p-4 rounded-lg border border-white/10">
+                <div className="flex items-center justify-center mb-2">
+                  {prize.icon}
+                </div>
+                <h4 className="text-sm font-medium mb-1">{prize.title}</h4>
+                <div className="text-2xl font-bold bg-gradient-to-r bg-clip-text text-transparent"
+                  style={{backgroundImage: `linear-gradient(to right, ${prize.color.split(' ')[1]}, ${prize.color.split(' ')[3]})`}}>
+                  {prize.amount}
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {prizes.map((prize, index) => (
             <div 
               key={prize.title}
@@ -164,8 +198,8 @@ const Prizes = () => {
                     {prize.icon}
                   </div>
                   <div className="text-right">
-                    <span className="text-sm text-white/60 block">Prize</span>
-                    <span className="text-2xl font-bold bg-gradient-to-r bg-clip-text text-transparent"
+                    <Badge className="mb-1 bg-white/10 text-white/80">Prize</Badge>
+                    <span className="text-3xl font-extrabold bg-gradient-to-r bg-clip-text text-transparent animate-pulse-slow"
                       style={{backgroundImage: `linear-gradient(to right, ${prize.color.split(' ')[1]}, ${prize.color.split(' ')[3]})`}}>
                       {prize.amount}
                     </span>
@@ -177,11 +211,11 @@ const Prizes = () => {
                 {/* Prize breakdown */}
                 <div className="mt-2 mb-6 bg-white/5 rounded-lg p-3">
                   <h5 className="text-sm font-medium mb-2 text-white/80">Prize Breakdown:</h5>
-                  <ul className="space-y-1">
+                  <ul className="space-y-2">
                     {prize.breakdown.map((item, i) => (
                       <li key={i} className="flex justify-between items-center text-sm">
-                        <span>{item.place}</span>
-                        <span className="font-semibold">{item.amount}</span>
+                        <span className="font-medium">{item.place}</span>
+                        <span className="font-bold text-lg text-white">{item.amount}</span>
                       </li>
                     ))}
                   </ul>
