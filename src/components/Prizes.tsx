@@ -1,6 +1,15 @@
 
 import React, { useEffect, useRef } from 'react';
-import { Trophy, Award, Gift, DollarSign } from 'lucide-react';
+import { Trophy, Award, Gift, DollarSign, Calendar, Info, ChevronRight } from 'lucide-react';
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Separator } from "@/components/ui/separator";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 
 const Prizes = () => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -32,6 +41,9 @@ const Prizes = () => {
       amount: '$500,000',
       description: 'Awarded to the most innovative project with exceptional execution and impact.',
       color: 'from-amber-600 to-yellow-500',
+      breakdown: [
+        { place: '1st Place', amount: '$500,000' }
+      ]
     },
     {
       icon: <Award className="h-8 w-8 text-blue-400" />,
@@ -39,6 +51,10 @@ const Prizes = () => {
       amount: '$250,000',
       description: 'Split between outstanding projects that demonstrate excellence and creativity.',
       color: 'from-blue-600 to-sky-400',
+      breakdown: [
+        { place: '2nd Place', amount: '$150,000' },
+        { place: '3rd Place', amount: '$100,000' }
+      ]
     },
     {
       icon: <Gift className="h-8 w-8 text-green-400" />,
@@ -46,6 +62,50 @@ const Prizes = () => {
       amount: '$250,000+',
       description: 'Specialized awards for best projects in specific technology categories.',
       color: 'from-green-600 to-emerald-400',
+      breakdown: [
+        { place: 'Best Web3 Project', amount: '$50,000' },
+        { place: 'Best AI Implementation', amount: '$50,000' },
+        { place: 'Best Developer Tool', amount: '$50,000' },
+        { place: 'Best Mobile App', amount: '$50,000' },
+        { place: 'Community Choice', amount: '$50,000' }
+      ]
+    },
+  ];
+  
+  const timelineEvents = [
+    { date: 'August 15, 2023', title: 'Registration Opens', description: 'Sign up early to secure your spot in the world\'s largest hackathon.' },
+    { date: 'September 30, 2023', title: 'Registration Closes', description: 'Last day to register for the event. Don\'t miss your chance!' },
+    { date: 'October 1, 2023', title: 'Kickoff & Opening Ceremony', description: 'Join us for the virtual opening ceremony with special guests and announcements.' },
+    { date: 'October 1-8, 2023', title: 'Hackathon Week', description: 'Seven days of intensive hacking, workshops, and mentor sessions.' },
+    { date: 'October 8, 2023', title: 'Submissions Due', description: 'All projects must be submitted by 11:59 PM UTC.' },
+    { date: 'October 10-15, 2023', title: 'Judging Period', description: 'Our panel of judges will review all submitted projects.' },
+    { date: 'October 20, 2023', title: 'Winners Announcement', description: 'Join the live ceremony to find out who won the $1,000,000+ in prizes!' },
+  ];
+  
+  const faqs = [
+    {
+      question: 'Who can participate in the hackathon?',
+      answer: 'Anyone over the age of 18 can participate, regardless of experience level. We welcome developers, designers, and creators from all backgrounds.'
+    },
+    {
+      question: 'Is this hackathon completely virtual?',
+      answer: 'Yes, this is a fully virtual event. You can participate from anywhere in the world with an internet connection.'
+    },
+    {
+      question: 'How are teams formed?',
+      answer: 'You can participate individually or in teams of up to 5 people. We\'ll also have team-matching events before the hackathon starts.'
+    },
+    {
+      question: 'What kinds of projects are eligible?',
+      answer: 'Any tech project that falls within our guidelines is eligible. We encourage innovation across web, mobile, AI, blockchain, and more.'
+    },
+    {
+      question: 'How are the winners selected?',
+      answer: 'Projects will be judged based on innovation, technical implementation, design, and impact. Our panel of industry experts will review all submissions.'
+    },
+    {
+      question: 'When will prizes be distributed?',
+      answer: 'Prize money will be distributed within 30 days of the winners announcement, after verification of eligibility.'
     },
   ];
 
@@ -114,6 +174,20 @@ const Prizes = () => {
                 </div>
                 <h4 className="text-xl font-semibold mb-3">{prize.title}</h4>
                 <p className="text-white/70 mb-6">{prize.description}</p>
+                
+                {/* Prize breakdown */}
+                <div className="mt-2 mb-6 bg-white/5 rounded-lg p-3">
+                  <h5 className="text-sm font-medium mb-2 text-white/80">Prize Breakdown:</h5>
+                  <ul className="space-y-1">
+                    {prize.breakdown.map((item, i) => (
+                      <li key={i} className="flex justify-between items-center text-sm">
+                        <span>{item.place}</span>
+                        <span className="font-semibold">{item.amount}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                
                 <div className="mt-auto">
                   <div className="h-1 w-full rounded-full bg-white/10 overflow-hidden">
                     <div className="h-full rounded-full shimmer" 
@@ -128,7 +202,74 @@ const Prizes = () => {
           ))}
         </div>
         
-        <div className="mt-16 text-center" data-animate="fade-up" data-index="6">
+        {/* Event Timeline */}
+        <div className="mt-24" data-animate="fade-up" data-index="7">
+          <div className="text-center max-w-3xl mx-auto mb-12">
+            <div className="inline-flex items-center justify-center p-2 bg-white/5 rounded-full mb-4">
+              <Calendar className="h-6 w-6 text-blue-400" />
+            </div>
+            <h2 className="text-3xl font-bold mb-4">Event Timeline</h2>
+            <p className="text-white/70">Mark your calendar for these important dates</p>
+          </div>
+          
+          <div className="relative pb-12">
+            {/* Timeline vertical line */}
+            <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-gradient-to-b from-blue-600 to-violet-600"></div>
+            
+            {/* Timeline events */}
+            {timelineEvents.map((event, i) => (
+              <div 
+                key={i} 
+                className={`relative flex items-center mb-8 ${i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}
+                data-animate="fade-up"
+                data-index={8 + i}
+              >
+                {/* Event dot */}
+                <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full bg-blue-500 border-4 border-background z-10"></div>
+                
+                {/* Event content */}
+                <div className={`w-full md:w-5/12 ${i % 2 === 0 ? 'md:pr-12 md:text-right' : 'md:pl-12'}`}>
+                  <div className="p-4 glass rounded-lg border border-white/10 hover:border-white/20 transition-all duration-300">
+                    <span className="text-sm text-blue-400 font-medium">{event.date}</span>
+                    <h4 className="text-lg font-semibold mb-1">{event.title}</h4>
+                    <p className="text-white/70 text-sm">{event.description}</p>
+                  </div>
+                </div>
+                
+                {/* Invisible spacer for alternate layout */}
+                <div className="hidden md:block w-5/12"></div>
+              </div>
+            ))}
+          </div>
+        </div>
+        
+        {/* FAQs */}
+        <div className="mt-24" data-animate="fade-up" data-index="15">
+          <div className="text-center max-w-3xl mx-auto mb-12">
+            <div className="inline-flex items-center justify-center p-2 bg-white/5 rounded-full mb-4">
+              <Info className="h-6 w-6 text-blue-400" />
+            </div>
+            <h2 className="text-3xl font-bold mb-4">Frequently Asked Questions</h2>
+            <p className="text-white/70">Everything you need to know about the hackathon</p>
+          </div>
+          
+          <div className="max-w-3xl mx-auto">
+            <Accordion type="single" collapsible className="w-full">
+              {faqs.map((faq, i) => (
+                <AccordionItem key={i} value={`item-${i}`} className="border-white/10">
+                  <AccordionTrigger className="text-lg hover:no-underline py-4">
+                    {faq.question}
+                  </AccordionTrigger>
+                  <AccordionContent className="text-white/70">
+                    {faq.answer}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </div>
+        </div>
+        
+        <div className="mt-16 text-center" data-animate="fade-up" data-index="16">
           <a 
             href="https://form.typeform.com/to/wf94YwH4?typeform-source=t.co"
             target="_blank"
